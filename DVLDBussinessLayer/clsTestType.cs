@@ -13,11 +13,11 @@ namespace DVLDBussinessLayer
     {
         public enum enTestType { VisionTest=1,WrittenTest=2,StreetTest=3};
         public static enTestType TestType;
-        public int TestID { get; set; }
+        public enTestType TestID { get; set; }
         public string TestTypeTitle { get; set; }
         public float TestFees { get; set; }
         public string TestDescreption {  get; set; }
-        private clsTestType(int ID, string Title,string descreption, float fees)
+        private clsTestType(enTestType ID, string Title,string descreption, float fees)
         {
             TestID = ID;
             TestTypeTitle = Title;
@@ -26,17 +26,17 @@ namespace DVLDBussinessLayer
         }
         public clsTestType()
         {
-            TestID = -1;
+            TestID = new enTestType();
             TestFees = 0;
             TestDescreption = string.Empty;
             TestTypeTitle=string.Empty;
         }
 
-        public static clsTestType Find(int ID)
+        public static clsTestType Find(enTestType ID)
         {
             string title = ""; float fees = 0;
             string descreption = "";
-            if (clsTestTypesData.GetTestType(ID, ref title,ref descreption, ref fees))
+            if (clsTestTypesData.GetTestType((int)ID, ref title,ref descreption, ref fees))
             {
                 return new clsTestType(ID, title,descreption, fees);
             }
@@ -53,7 +53,7 @@ namespace DVLDBussinessLayer
         }
         public bool UpdateInfoOfTypes()
         {
-            return clsTestTypesData.UpdateTestType(TestID, TestTypeTitle, TestDescreption, TestFees);
+            return clsTestTypesData.UpdateTestType((int)TestID, TestTypeTitle, TestDescreption, TestFees);
         }
     }
 }

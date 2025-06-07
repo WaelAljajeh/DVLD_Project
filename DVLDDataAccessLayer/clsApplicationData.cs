@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DVLDDataAccessLayer
 {
@@ -204,6 +205,30 @@ namespace DVLDDataAccessLayer
             return result;
 
         }
+        public static bool UpdateApplicationStatus(int ApplicationID,int ApplicationStatus)
+        {
+            int result = 0;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionstring);
+            string query = @"UPDATE Applications
+   SET 
+      ApplicationStatus = @ApplicationStatus
+      ,LastStatusDate= @LastStatusDate
+       where ApplicationID=@ApplicationID";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("ApplicationID", ApplicationID);
+       
+            command.Parameters.AddWithValue("ApplicationStatus", ApplicationStatus);
+            command.Parameters.AddWithValue("LastStatusDate", DateTime.Now) ;
+            
+            try
+            {
+                connection.Open();
+                result = command.ExecuteNonQuery();
+            }
+            catch (Exception ex) { Console.WriteLine("Error " + ex.ToString()); }
+            finally { connection.Close(); }
+            return result > 0;
+        }
         public static bool DeleteApplication(int ApplicationID)
         {
             int result = 0;
@@ -219,31 +244,6 @@ namespace DVLDDataAccessLayer
             catch (Exception ex) { Console.WriteLine("Error " + ex.ToString()); }
             finally { connection.Close(); }
             return result > 0;
-        }
-        public static bool UpdateApplicationStatus(int ApplicationID,int ApplicationStatus)
-        {
-            int result = 0;
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionstring);
-            string query = @"UPDATE Applications
-   SET 
-      ApplicationStatus = @ApplicationStatus
-      ,LastStatusDate= @LastStatusDate
-   
- WHERE ApplicationID=@ApplicationID";
-            SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("ApplicationID", ApplicationID);
-            command.Parameters.AddWithValue("ApplicationStatus", ApplicationStatus);
-            command.Parameters.AddWithValue("LastStatusDate", DateTime.Now);
-        
-            try
-            {
-                connection.Open();
-                result = command.ExecuteNonQuery();
-            }
-            catch (Exception ex) { Console.WriteLine("Error " + ex.ToString()); }
-            finally { connection.Close(); }
-            return result > 0;
-
         }
     }
 }

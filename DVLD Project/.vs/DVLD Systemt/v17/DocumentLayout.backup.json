@@ -1,0 +1,73 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Laptop Home\\Desktop\\Doucement\\DVLD Project My Soultion\\DVLD Project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{25DB621A-766C-4161-BD28-76B21BC41933}|DVLD Project.csproj|c:\\users\\laptop home\\desktop\\doucement\\dvld project my soultion\\dvld project\\global classes\\clsglobalsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{25DB621A-766C-4161-BD28-76B21BC41933}|DVLD Project.csproj|solutionrelative:global classes\\clsglobalsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{25DB621A-766C-4161-BD28-76B21BC41933}|DVLD Project.csproj|c:\\users\\laptop home\\desktop\\doucement\\dvld project my soultion\\dvld project\\login\\frmloginscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{25DB621A-766C-4161-BD28-76B21BC41933}|DVLD Project.csproj|solutionrelative:login\\frmloginscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2CD7B7FE-EC94-487D-9F04-46351D709202}|..\\DVLDDataAccessLayer\\DVLDDataAccessLayer.csproj|c:\\users\\laptop home\\desktop\\doucement\\dvld project my soultion\\dvlddataaccesslayer\\clsapplicationdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "clsGlobalSettings.cs",
+              "DocumentMoniker": "C:\\Users\\Laptop Home\\Desktop\\Doucement\\DVLD Project My Soultion\\DVLD Project\\Global Classes\\clsGlobalSettings.cs",
+              "RelativeDocumentMoniker": "Global Classes\\clsGlobalSettings.cs",
+              "ToolTip": "C:\\Users\\Laptop Home\\Desktop\\Doucement\\DVLD Project My Soultion\\DVLD Project\\Global Classes\\clsGlobalSettings.cs",
+              "RelativeToolTip": "Global Classes\\clsGlobalSettings.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAAwB8AAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-07T08:36:47.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmLoginScreen.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Laptop Home\\Desktop\\Doucement\\DVLD Project My Soultion\\DVLD Project\\Login\\frmLoginScreen.cs",
+              "RelativeDocumentMoniker": "Login\\frmLoginScreen.cs",
+              "ToolTip": "C:\\Users\\Laptop Home\\Desktop\\Doucement\\DVLD Project My Soultion\\DVLD Project\\Login\\frmLoginScreen.cs [Design]",
+              "RelativeToolTip": "Login\\frmLoginScreen.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-07T08:36:43.453Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "clsApplicationData.cs",
+              "DocumentMoniker": "C:\\Users\\Laptop Home\\Desktop\\Doucement\\DVLD Project My Soultion\\DVLDDataAccessLayer\\clsApplicationData.cs",
+              "RelativeDocumentMoniker": "..\\DVLDDataAccessLayer\\clsApplicationData.cs",
+              "ToolTip": "C:\\Users\\Laptop Home\\Desktop\\Doucement\\DVLD Project My Soultion\\DVLDDataAccessLayer\\clsApplicationData.cs",
+              "RelativeToolTip": "..\\DVLDDataAccessLayer\\clsApplicationData.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAIwF8AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T15:36:45.117Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

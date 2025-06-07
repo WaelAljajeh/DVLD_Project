@@ -132,5 +132,14 @@ namespace DVLDBussinessLayer
             }
             return false;
         }
+        public bool ReleaseDetainedLicense(int CreatedByUserID,int ApplicationID)
+        {
+            this.ReleasedByUserID = CreatedByUserID;
+            this.ReleaseApplicationID=ApplicationID;
+            this.IsReleased = true;
+            this.ReleaseDate= DateTime.Now;
+            return UpdateDetainLicense();
+        }
+    
     }
 }

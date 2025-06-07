@@ -46,7 +46,6 @@
     <Compile Include="clsCountries.cs" />
     <Compile Include="clsDetain.cs" />
     <Compile Include="clsDriver.cs" />
-    <Compile Include="clsGlobalSettings.cs" />
     <Compile Include="clsInternationalLicense.cs" />
     <Compile Include="clsLicenesClasses.cs" />
     <Compile Include="clsLicense.cs" />
@@ -56,7 +55,6 @@
     <Compile Include="clsTestAppointments.cs" />
     <Compile Include="clsTestType.cs" />
     <Compile Include="clsUsers.cs" />
-    <Compile Include="clsUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

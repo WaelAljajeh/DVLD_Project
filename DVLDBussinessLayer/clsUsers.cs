@@ -15,6 +15,7 @@ namespace DVLDBussinessLayer
         enMode _Mode;
         public int UserID { get; set; }
 
+        public clsPeople PersonInfo {  get; set; }
         public int PersonID {  get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
@@ -35,6 +36,7 @@ namespace DVLDBussinessLayer
             _Mode = enMode.Update;
             this.UserID = UserID;
             this.PersonID = PersonID;
+            PersonInfo=clsPeople.Find(PersonID);
             this.Username = Username;
             this.Password = Password;
             this.IsActive= IsActive;

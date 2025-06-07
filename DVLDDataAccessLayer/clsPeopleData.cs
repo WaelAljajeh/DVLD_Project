@@ -11,15 +11,15 @@ namespace DVLDDataAccessLayer
 {
     public class clsPeopleData
     {
-        public static bool GetPersonInfoByID(int PersonID,ref string NationalNo,ref string FirstName,ref string SecondName
-  ,ref string ThirdName,ref string LastName,ref DateTime DateOfBirth,ref byte Gendor,ref string Address
-            ,ref string Email,ref string PhoneNumber,ref int NationalityCountryID,ref string ImagePath)
+        public static bool GetPersonInfoByID(int PersonID, ref string NationalNo, ref string FirstName, ref string SecondName
+  , ref string ThirdName, ref string LastName, ref DateTime DateOfBirth, ref byte Gendor, ref string Address
+            , ref string Email, ref string PhoneNumber, ref int NationalityCountryID, ref string ImagePath)
         {
-            bool IsFound=false;
+            bool IsFound = false;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionstring);
             string query = @"Select * from People where PersonID=@PersonID";
-            SqlCommand command=new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("PersonID",PersonID);
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("PersonID", PersonID);
             try
             {
                 connection.Open();
@@ -45,12 +45,12 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error "+ex.ToString());
+                Console.WriteLine("Error " + ex.ToString());
             }
             finally { connection.Close(); }
             return IsFound;
         }
-        public static bool GetPersonInfoByNationalNo(string NationalNo,ref int PersonID, ref string FirstName, ref string SecondName
+        public static bool GetPersonInfoByNationalNo(string NationalNo, ref int PersonID, ref string FirstName, ref string SecondName
 , ref string ThirdName, ref string LastName, ref DateTime DateOfBirth, ref byte Gendor, ref string Address
        , ref string Email, ref string PhoneNumber, ref int NationalityCountryID, ref string ImagePath)
         {
@@ -90,8 +90,8 @@ namespace DVLDDataAccessLayer
             return IsFound;
         }
         public static int AddNewPerson(string NationalNo, string FirstName, string SecondName
-  , string ThirdName,  string LastName, DateTime DateOfBirth,  byte Gendor, string Address
-            , string Email, string PhoneNumber, int NationalityCountryID,  string ImagePath)
+  , string ThirdName, string LastName, DateTime DateOfBirth, byte Gendor, string Address
+            , string Email, string PhoneNumber, int NationalityCountryID, string ImagePath)
         {
             int PersonID = -1;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionstring);
@@ -122,12 +122,12 @@ namespace DVLDDataAccessLayer
            ,@NationalityCountryID
            ,@ImagePath)
             select SCOPE_IDENTITY();";
-           SqlCommand command=new SqlCommand(query, connection);
+            SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("NationalNo", NationalNo);
             command.Parameters.AddWithValue("FirstName", FirstName);
             command.Parameters.AddWithValue("SecondName", SecondName);
-            if(ThirdName!="")
-            command.Parameters.AddWithValue("ThirdName", ThirdName);
+            if (ThirdName != "")
+                command.Parameters.AddWithValue("ThirdName", ThirdName);
             else
                 command.Parameters.AddWithValue("ThirdName", DBNull.Value);
             command.Parameters.AddWithValue("LastName", LastName);
@@ -135,13 +135,13 @@ namespace DVLDDataAccessLayer
             command.Parameters.AddWithValue("Gendor", Gendor);
             command.Parameters.AddWithValue("Address", Address);
             command.Parameters.AddWithValue("Phone", PhoneNumber);
-            if(Email!="")
-            command.Parameters.AddWithValue("Email", Email);
+            if (Email != "")
+                command.Parameters.AddWithValue("Email", Email);
             else
                 command.Parameters.AddWithValue("Email", DBNull.Value);
             command.Parameters.AddWithValue("NationalityCountryID", NationalityCountryID);
-            if(ImagePath!="")
-            command.Parameters.AddWithValue("ImagePath", ImagePath);
+            if (ImagePath != "")
+                command.Parameters.AddWithValue("ImagePath", ImagePath);
             else
                 command.Parameters.AddWithValue("ImagePath", DBNull.Value);
             try
@@ -153,15 +153,15 @@ namespace DVLDDataAccessLayer
                     PersonID = InsertedID;
                 }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-                Console.WriteLine("Error " + ex.ToString()); 
+                Console.WriteLine("Error " + ex.ToString());
             }
             finally { connection.Close(); }
             return PersonID;
 
         }
-        public static bool UpdatePerson(int PersonID,string NationalNo, string FirstName, string SecondName
+        public static bool UpdatePerson(int PersonID, string NationalNo, string FirstName, string SecondName
   , string ThirdName, string LastName, DateTime DateOfBirth, byte Gendor, string Address
             , string Email, string PhoneNumber, int NationalityCountryID, string ImagePath)
         {
@@ -186,8 +186,8 @@ namespace DVLDDataAccessLayer
             command.Parameters.AddWithValue("NationalNo", NationalNo);
             command.Parameters.AddWithValue("FirstName", FirstName);
             command.Parameters.AddWithValue("SecondName", SecondName);
-            if(ThirdName!="")
-            command.Parameters.AddWithValue("ThirdName", ThirdName);
+            if (ThirdName != "")
+                command.Parameters.AddWithValue("ThirdName", ThirdName);
             else
                 command.Parameters.AddWithValue("ThirdName", DBNull.Value);
             command.Parameters.AddWithValue("LastName", LastName);
@@ -195,12 +195,12 @@ namespace DVLDDataAccessLayer
             command.Parameters.AddWithValue("Gendor", Gendor);
             command.Parameters.AddWithValue("Address", Address);
             command.Parameters.AddWithValue("Phone", PhoneNumber);
-            if(Email!="")
-            command.Parameters.AddWithValue("Email", Email);
+            if (Email != "")
+                command.Parameters.AddWithValue("Email", Email);
             else
                 command.Parameters.AddWithValue("Email", DBNull.Value);
             command.Parameters.AddWithValue("NationalityCountryID", NationalityCountryID);
-            if(ImagePath!="")
+            if (ImagePath != null)
             command.Parameters.AddWithValue("ImagePath", ImagePath);
             else
                 command.Parameters.AddWithValue("ImagePath", DBNull.Value);
@@ -295,12 +295,11 @@ namespace DVLDDataAccessLayer
               when 0 then 'Male'
              when 1 then 'Female'
               end
-             ,Countries.CountryName
             ,[Address]
             ,[Phone]
             ,[Email]
 
-           FROM [dbo].[People] inner join Countries on Countries.CountryID=People.NationalityCountryID
+           FROM [dbo].[People]
  ";
             SqlCommand command = new SqlCommand(query, connection);
             

@@ -15,7 +15,7 @@ namespace DVLDDataAccessLayer
         {
             DataTable result = new DataTable();
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionstring);
-            string query = @"Select * from Countries";
+            string query = @"Select CountryName from Countries";
             SqlCommand command = new SqlCommand(query, connection);
 
             try
@@ -59,31 +59,6 @@ namespace DVLDDataAccessLayer
             }
             finally { connection.Close(); }
             return CountryName;
-        }
-        public static int FindString(string Name)
-        {
-            int CountryID = 0;
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionstring);
-            string query = @"Select CountryID from Countries where CountryName=@CountryName";
-            SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("CountryName", Name);
-
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    CountryID = (int)reader["CountryID"];
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error " + ex.ToString());
-            }
-            finally { connection.Close(); }
-            return CountryID;
         }
     }
 }

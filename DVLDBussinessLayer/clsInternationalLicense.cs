@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace DVLDBussinessLayer
 {
-    public class clsInternationalLicense
+    public class clsInternationalLicense:clsApplication
     {
       enum enMode { AddNew=1,Update=2}
         enMode _Mode;
       public int InternationalLicenseID { get; set; }
-      public int ApplicationID { get; set; }
+      //public int ApplicationID { get; set; }
       public int DriverID { get; set; }
       public int IssuedUsingLocalLicenseID { get; set; }
       public DateTime IssueDate { get; set; }
@@ -33,24 +33,26 @@ namespace DVLDBussinessLayer
             ExpirationDate = DateTime.MinValue;
             CreatedByUserID = -1;
         }
-        private clsInternationalLicense( int internationalLicenseID, int applicationID, int driverID, int issuedUsingLocalLicenseID, DateTime issueDate, DateTime expirationDate, bool isActive, int createdByUserID)
+      private clsInternationalLicense( int internationalLicenseID, int applicationID, int driverID, int issuedUsingLocalLicenseID, DateTime issueDate, DateTime expirationDate, bool isActive, int createdByUserID)
         {
             _Mode = enMode.Update;
             InternationalLicenseID = internationalLicenseID;
-            ApplicationID = applicationID;
+            base.ApplicationID = applicationID;
             DriverID = driverID;
             IssuedUsingLocalLicenseID = issuedUsingLocalLicenseID;
             IssueDate = issueDate;
             ExpirationDate = expirationDate;
             IsActive = isActive;
-            CreatedByUserID = createdByUserID;
-            ApplicationInfo = clsApplication.Find(ApplicationID);
+            base.CreatedByUserID = createdByUserID;
+            this.CreatedByUserID = CreatedByUserID;
+            //ApplicationInfo = clsApplication.Find(ApplicationID);
         }
-        public static DataTable GetInternationalLicensesList()
+
+      public static DataTable GetInternationalLicensesList()
         {
             return  clsInternationalDrivingLicensesData.GetInternationalList();
         }
-        public static DataTable GetInternationalLicensesListPerPerson(int PerosnID)
+      public static DataTable GetInternationalLicensesListPerPerson(int PerosnID)
         {
             return clsInternationalDrivingLicensesData.GetInternationalListPerPerson(PerosnID);
         }

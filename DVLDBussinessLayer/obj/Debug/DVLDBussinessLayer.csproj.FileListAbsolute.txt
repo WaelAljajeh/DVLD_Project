@@ -7,3 +7,12 @@ C:\Users\Laptop Home\Desktop\wael\C# controls\DVLDBussinessLayer\obj\Debug\DVLDB
 C:\Users\Laptop Home\Desktop\wael\C# controls\DVLDBussinessLayer\obj\Debug\DVLDBuss.F42A9AF3.Up2Date
 C:\Users\Laptop Home\Desktop\wael\C# controls\DVLDBussinessLayer\obj\Debug\DVLDBussinessLayer.dll
 C:\Users\Laptop Home\Desktop\wael\C# controls\DVLDBussinessLayer\obj\Debug\DVLDBussinessLayer.pdb
+C:\Users\Laptop Home\Desktop\Doucement\DVLD Project My Soultion\DVLDBussinessLayer\bin\Debug\DVLDBussinessLayer.dll
+C:\Users\Laptop Home\Desktop\Doucement\DVLD Project My Soultion\DVLDBussinessLayer\bin\Debug\DVLDBussinessLayer.pdb
+C:\Users\Laptop Home\Desktop\Doucement\DVLD Project My Soultion\DVLDBussinessLayer\bin\Debug\DVLDDataAccessLayer.dll
+C:\Users\Laptop Home\Desktop\Doucement\DVLD Project My Soultion\DVLDBussinessLayer\bin\Debug\DVLDDataAccessLayer.pdb
+C:\Users\Laptop Home\Desktop\Doucement\DVLD Project My Soultion\DVLDBussinessLayer\obj\Debug\DVLDBussinessLayer.csproj.AssemblyReference.cache
+C:\Users\Laptop Home\Desktop\Doucement\DVLD Project My Soultion\DVLDBussinessLayer\obj\Debug\DVLDBussinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Laptop Home\Desktop\Doucement\DVLD Project My Soultion\DVLDBussinessLayer\obj\Debug\DVLDBuss.F42A9AF3.Up2Date
+C:\Users\Laptop Home\Desktop\Doucement\DVLD Project My Soultion\DVLDBussinessLayer\obj\Debug\DVLDBussinessLayer.dll
+C:\Users\Laptop Home\Desktop\Doucement\DVLD Project My Soultion\DVLDBussinessLayer\obj\Debug\DVLDBussinessLayer.pdb

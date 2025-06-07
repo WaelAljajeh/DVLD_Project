@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,9 +14,11 @@ namespace DVLD_Project
 {
     public partial class frmMainMenu : Form
     {
-        public frmMainMenu()
+        frmLoginScreen _frmLoginScreen;
+        public frmMainMenu(frmLoginScreen frmLoginScreen)
         {
             InitializeComponent();
+            _frmLoginScreen = frmLoginScreen;
         }
         
 
@@ -40,12 +43,13 @@ namespace DVLD_Project
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             clsGlobalSettings.CuurentUser = null;
+            _frmLoginScreen.Show();
             this.Close();
         }
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmChangePassword frmChangePassword = new frmChangePassword();
+            frmChangePassword frmChangePassword = new frmChangePassword(clsGlobalSettings.CuurentUser.UserID);
             frmChangePassword.ShowDialog();
         }
 
@@ -97,7 +101,7 @@ namespace DVLD_Project
 
         private void internationalDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clsUtil.ApplicationType = clsUtil.enApplicationType.International_Licenese;
+           clsApplicationTypes.ApplicationType = clsApplicationTypes.enApplicationType.International_Licenese;
             frmIssueInternationalLicense frmIssueInternationalLicense=new frmIssueInternationalLicense();
             frmIssueInternationalLicense.ShowDialog();
 
@@ -116,7 +120,7 @@ namespace DVLD_Project
 
         private void renewDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clsUtil.ApplicationType = clsUtil.enApplicationType.Renew;
+            clsApplicationTypes.ApplicationType = clsApplicationTypes.enApplicationType.Renew;
             
             frmRenewLicense frmRenewLicense = new frmRenewLicense();
             frmRenewLicense.ShowDialog();
@@ -142,14 +146,14 @@ namespace DVLD_Project
 
         private void realeseDetainedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clsUtil.ApplicationType=clsUtil.enApplicationType.Realease_Detain_License;
+            clsApplicationTypes.ApplicationType=clsApplicationTypes.enApplicationType.Realease_Detain_License;
            frmRealseDetainedLicense frmRealseDetainedLicense=new frmRealseDetainedLicense();
             frmRealseDetainedLicense.ShowDialog();
         }
 
         private void releaseDetainedDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clsUtil.ApplicationType = clsUtil.enApplicationType.Realease_Detain_License;
+            clsApplicationTypes.ApplicationType = clsApplicationTypes.enApplicationType.Realease_Detain_License;
             frmRealseDetainedLicense frmRealseDetainedLicense = new frmRealseDetainedLicense();
             frmRealseDetainedLicense.ShowDialog();
         }
@@ -158,6 +162,16 @@ namespace DVLD_Project
         {
             frmLocalDrivingLicenseList frmLocalDrivingLicenseList = new frmLocalDrivingLicenseList();
             frmLocalDrivingLicenseList.ShowDialog();
+        }
+
+        private void frmMainMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+        }
+
+        private void pbClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

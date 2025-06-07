@@ -100,6 +100,19 @@ namespace DVLDBussinessLayer
             }
             return false;
         }
-       
+        public static clsTestAppointments GetLastTestAppointment(int LocalDrivingLicenseApplicationID, int TestTypeID)
+        {
+            int TestAppointmentID = -1;
+            DateTime AppointmentDate = DateTime.MinValue;
+            float PaidFees = 0;
+            int CreatedByUserID = -1;
+            bool IsLocked = false;
+            int RetakeTestApplicationID = -1;
+            if(clsTestAppointmentsData.GetLastTestAppointment(LocalDrivingLicenseApplicationID,TestTypeID,ref TestAppointmentID,ref AppointmentDate,ref PaidFees,ref CreatedByUserID,ref IsLocked,ref RetakeTestApplicationID))
+            {
+                return new clsTestAppointments(TestAppointmentID, TestTypeID, LocalDrivingLicenseApplicationID, AppointmentDate, PaidFees, CreatedByUserID, IsLocked, RetakeTestApplicationID);
+            }
+            return null;
+        }
     }
 }

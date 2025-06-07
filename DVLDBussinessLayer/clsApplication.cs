@@ -10,19 +10,22 @@ namespace DVLDBussinessLayer
 {
     public class clsApplication
     {
-        enum enMode { AddNew=0,Update=1};
+       public enum enMode { AddNew=0,Update=1};
         public enum enAPPStatus { New = 1, Cancelled = 2, Completed };
-        enMode _Mode;
-        public clsPeople _PersonInfo { get; }
-       public int ApplicationID { get; set;}
+        public enMode _Mode;
+        public clsPeople _PersonInfo { get; set; }
+        
+        public int ApplicationID { get; set;}
         public int ApplicationPersonID { get; set;}
         public DateTime ApplicationDate {  get; set;}
         public int ApplicationTypeID { get; set; }
+        public clsApplicationTypes _ApplicationTypeInfo { get; set;}
         public byte ApplicationStatus { get; set; }
         public DateTime LastStatus {  get; set; }
 
         public float PaidFees {  get; set; }
         public int CreatedByUserID {  get; set; }
+        public clsUsers _UserInfo { get; set; }
         public clsApplication()
         {
             ApplicationDate = DateTime.Now;
@@ -48,12 +51,14 @@ namespace DVLDBussinessLayer
             PaidFees = paidFees;
             CreatedByUserID = createdByUserID;
             _PersonInfo = clsPeople.Find(ApplicationPersonID);
+            _UserInfo = clsUsers.Find(CreatedByUserID);
+            _ApplicationTypeInfo = clsApplicationTypes.Find(ApplicationTypeID);
         }
         public static int GetApplicationIDByPersonIDAndStatus(int ApplicationPersonID, byte ApplicationStatus, int ApplicationTypeID)
         {
             return clsApplicationData.GetApplicationIDByPersonID(ApplicationPersonID,ApplicationStatus,ApplicationTypeID);
         }
-        public static clsApplication Find(int ApplicationID)
+        public static clsApplication FindBaseApplication(int ApplicationID)
         {
             DateTime applicationDate = DateTime.MinValue; 
             int applicationTypeID = -1;
@@ -82,13 +87,13 @@ namespace DVLDBussinessLayer
         {
             return clsApplicationData.DeleteApplication(AppID);
         }
-        public bool SetComplete()
+        public bool Cancel()
         {
-           return clsApplicationData.UpdateApplicationStatus(ApplicationID,3);
+            return clsApplicationData.UpdateApplicationStatus(ApplicationID, 2);   
         }
-        public bool CancelApplication()
+        public bool SetCompleted()
         {
-            return clsApplicationData.UpdateApplicationStatus(ApplicationID,2);
+            return clsApplicationData.UpdateApplicationStatus(ApplicationID, 3);
         }
         public bool Save()
         {

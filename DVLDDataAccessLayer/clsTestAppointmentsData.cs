@@ -220,6 +220,43 @@ namespace DVLDDataAccessLayer
             finally { connection.Close(); }
             return result>0;
         }
+        public static bool GetLastTestAppointment(int LocalDrivingLicenseApplicationID,int TestTypeID, ref int TestAppointmentID, ref DateTime AppointmentDate, ref float PaidFees, ref int CreatedByUserID, ref bool IsLocked, ref int RetakeTestApplicationID)
+        {
+            bool IsFound = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionstring);
+            string query = @"select top 1 * from TestAppointments where LocalDrivingLicenseApplicationID=@LocalDrivingLicenseApplicationID and TestTypeID=@TestTypeID order by TestAppointmentID desc";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+            command.Parameters.AddWithValue("TestTypeID", TestTypeID);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    IsFound = true;
+                    TestAppointmentID = (int)reader["TestAppointmentID"];
+                    AppointmentDate = (DateTime)reader["AppointmentDate"];
+                    PaidFees = Convert.ToSingle(reader["PaidFees"]);
+                    CreatedByUserID = (int)reader["CreatedByUserID"];
+                    IsLocked = (bool)reader["IsLocked"];
+                    if (RetakeTestApplicationID != null)
+                        RetakeTestApplicationID = (int)reader["RetakeTestApplicationID"];
+                    else
+                        RetakeTestApplicationID = -1;
+
+
+
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error " + ex.ToString());
+            }
+            finally { connection.Close(); }
+            return IsFound;
+        }
 
     }
     
