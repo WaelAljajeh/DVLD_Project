@@ -146,7 +146,7 @@ namespace DVLD_Project
 
                 Users.PersonID = PersonID;
                 Users.Username = txtUsername.Text;
-                Users.Password = txtPassword.Text;
+                Users.Password = clsSecurity.ComputeHash(txtPassword.Text);
                 Users.IsActive = cbIsActive.Checked;
                 if (Users.Save())
                 {

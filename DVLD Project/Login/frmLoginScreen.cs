@@ -18,7 +18,8 @@ namespace DVLD_Project
         {
             InitializeComponent();
         }
-     
+
+        [Obsolete("That fucntion will be deleted In Next Version")]
         void StoreUserInformationInFile()
         {
             
@@ -26,6 +27,7 @@ namespace DVLD_Project
                 File.WriteAllText("C:/UserInfoForLogin.txt", txtUsername.Text + "#" + txtPassword.Text+"#"+cbRememberMe.Checked);
             
         }
+        [Obsolete("That fucntion will be deleted In Next Version")]
         void GetUserInfoFromFile()
         {
             if(File.Exists("C:\\UserInfoForLogin.txt"))
@@ -46,7 +48,7 @@ namespace DVLD_Project
         }
         bool Login()
         {
-            clsGlobalSettings.CuurentUser = clsUsers.Find(txtUsername.Text, txtPassword.Text);
+            clsGlobalSettings.CuurentUser = clsUsers.Find(txtUsername.Text,clsSecurity.ComputeHash(txtPassword.Text));
             if (clsGlobalSettings.CuurentUser != null)
             {
                 

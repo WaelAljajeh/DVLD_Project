@@ -51,6 +51,7 @@
     <Compile Include="clsLicense.cs" />
     <Compile Include="clsLocalDrivingLicenese.cs" />
     <Compile Include="clsPeople.cs" />
+    <Compile Include="clsSecurity.cs" />
     <Compile Include="clsTest.cs" />
     <Compile Include="clsTestAppointments.cs" />
     <Compile Include="clsTestType.cs" />
