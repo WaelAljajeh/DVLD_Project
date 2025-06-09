@@ -31,7 +31,7 @@ namespace DVLD_Project
         {
             if(CheckTexts())
             {
-                _User.Password=txtPassword.Text;
+                _User.Password = clsSecurity.ComputeHash(txtPassword.Text);
                 if(_User.Save())
                 MessageBox.Show("Password Changed Succesfuly");
                 else
@@ -66,7 +66,7 @@ namespace DVLD_Project
                 errorProvider1.SetError(txtCurrentPassword, "Cannot Be Empty"); 
                 return false;
             }
-            if (txtCurrentPassword.Text != clsGlobalSettings.CuurentUser.Password)
+            if (clsSecurity.ComputeHash(txtCurrentPassword.Text) != clsGlobalSettings.CuurentUser.Password)
             {
                 errorProvider1.SetError(txtCurrentPassword, "Invalid Current Password");
                 return false;
